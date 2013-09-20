@@ -4,21 +4,7 @@ using System.Collections;
 public class DoorPrefab : MonoBehaviour {
 	public Transform[] spawnPoints;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	void Update(){
-		if(Input.GetKeyDown(KeyCode.A)){
-			findNewLocation();	
-		}
-	}
-	void OnBecameInvisible(){
-		Debug.Log("I am invisible");
-		findNewLocation();
-		
-	}
-	
+
 	
 	void findNewLocation(){
 		int numberOfSpawnPoints = spawnPoints.Length;
@@ -27,6 +13,5 @@ public class DoorPrefab : MonoBehaviour {
 		transform.localPosition =  Vector3.zero;
 		transform.localRotation = Quaternion.identity;
 		Debug.Log(ranNum);
-		
 	}
 }
