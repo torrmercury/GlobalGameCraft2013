@@ -2,35 +2,50 @@ using UnityEngine;
 using System.Collections;
 
 public class baseObstacle : MonoBehaviour{
-
-	//tell the ai to search for the player (defined later)
-	public Transform target;
-	//speed of the obstacle
-	public int moveSpeed;
-	//maximum distance before obstacle wakes up
-	public int maxDistance;
-
-	//caching the transform of the obstacle
-	private Transform myTransform;
-
-	void awake(){
-		myTransform = transform;
-	}
+    bool p1near = true;
+    bool topped = false;
+    float i = 0;
 
 	void start(){
-		//find the player and store it as gameobject "go"
-		GameObject go = GameObject.FindGameObjectWithTag("Player");
-
-		target = go.transform;
-
-		maxDistance = 5;
+		
 	}
 
-	void Update(){
-		////checks to see if the distance between 2 points is greater than max distance
-		if(Vector3.Distance(target.position, myTransform.position) > maxDistance){
-		//move in the designated direction
-			myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
-		}
-	}
+    void Update()
+    {
+        if (p1near == true && topped == false)
+        {
+            if ( i < 7)
+            {
+                transform.position += new Vector3(0, 5, 0) * Time.deltaTime;
+                i += 1;
+                Debug.Log(i);
+            }
+            else if (i >= 7)
+            {
+                topped = true;
+                p1near = false;
+                Debug.Log("hi");
+                i = 0;
+                Debug.Log(i);
+            }
+        }
+        else if (p1near == false && topped == true)
+        {
+
+            if (i < 7)
+            {
+                transform.position += new Vector3(0, -5, 0) * Time.deltaTime;
+                i += 1;
+                Debug.Log(i);
+            }
+            else if (i >= 7)
+            {
+                topped = false;
+                p1near = true;
+                Debug.Log("hi");
+                i = 0;
+                Debug.Log(i);
+            }
+        }
+    }
 }
