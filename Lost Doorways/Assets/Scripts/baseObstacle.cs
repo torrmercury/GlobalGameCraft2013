@@ -19,7 +19,7 @@ public class baseObstacle : MonoBehaviour{
 
 	void start(){
 		//find the player and store it as gameobject "go"
-		gameobject go = GameObject.FindGameObjectWithTag("Player");
+		GameObject go = GameObject.FindGameObjectWithTag("Player");
 
 		target = go.transform;
 
@@ -29,8 +29,9 @@ public class baseObstacle : MonoBehaviour{
 	void Update(){
 		////checks to see if the distance between 2 points is greater than max distance
 		if(Vector3.Distance(target.position, myTransform.position) > maxDistance){
-		//move in the designated direction
-			myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
+		//move to a specific point
+			myTransform.Translate(0,5,0);
+			Debug.Log("I'm moving!");
 		}
 	}
 }
