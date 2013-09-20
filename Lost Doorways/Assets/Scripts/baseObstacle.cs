@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Collections;
-using System; //so i can access enum class
 
-public class baseObstacle : Monobehaviour{
+public class baseObstacle : MonoBehaviour{
 
-	
+	//tell the ai to search for the player (defined later)
+	public Transform target;
+	//speed of the obstacle
+	public int moveSpeed;
 }
