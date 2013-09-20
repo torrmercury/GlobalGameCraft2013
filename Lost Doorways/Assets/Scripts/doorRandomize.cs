@@ -16,6 +16,7 @@ public class doorRandomize : MonoBehaviour {
 
     void OnBecameInvisible()
     {
+        
         Instantiate(testDoor, new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f)), Quaternion.identity);
         Destroy(gameObject);
     }

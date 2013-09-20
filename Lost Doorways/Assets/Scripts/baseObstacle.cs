@@ -19,7 +19,7 @@ public class baseObstacle : MonoBehaviour{
 
 	void start(){
 		//find the player and store it as gameobject "go"
-		gameobject go = GameObject.FindGameObjectWithTag("Player");
+		GameObject go = GameObject.FindGameObjectWithTag("Player");
 
 		target = go.transform;
 
